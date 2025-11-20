@@ -297,3 +297,13 @@ def lookup_query(aadhar: str = Query(..., alias="aadhar")):
     if not person:
         raise HTTPException(status_code=404, detail="Aadhaar not found or invalid number")
     return person
+
+# Add this at the VERY END of your src/api.py file
+
+import os
+import uvicorn
+
+# Add this section - it will only run when deployed
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("api:app", host="0.0.0.0", port=port, reload=False)
