@@ -6,7 +6,7 @@
     "scripts": {
         "dev": "vite",
         "build": "node node_modules/vite/bin/vite.js build",
-        "postbuild": "mv dist ../dist || true",
+        "postbuild": "mkdir -p aadhaar-ui && mv dist aadhaar-ui/dist || true",
         "lint": "eslint .",
         "preview": "vite preview"
     },
